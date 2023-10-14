@@ -1,13 +1,18 @@
-# 📄 devContainer-bun
+# 🕵️‍♂️ fStat:
 
-A vs-code dev container for bun
+ Get All Kinds of Stats from a Directory and Its Subdirectories
 
-## 🔧 Requirement
+## 📦 Install :
 
-- Docker
-- VS-code
-- Dev containers extension (microsoft)
+### from pnpm :
+  - `pnpm i -g fstat`
+  - `pnpx fstat --help`
 
+### from source :
+  - `git clone https://github.com/Benoit-Welsch/fStat.git`
+  - `cd fStat`
+  - `bun install`
+  - `bun run -- --help`
 
 ## 📝 To Do :
   - ...
