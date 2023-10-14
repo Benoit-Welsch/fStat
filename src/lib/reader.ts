@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-interface FileDetail {
+export interface FileDetail {
   name: string;
   path: string;
   size: number;
