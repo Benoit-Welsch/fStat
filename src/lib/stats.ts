@@ -42,5 +42,13 @@ export function classifyFile(files: FileDetail[] | string[]) {
   return classifiedFiles
 }
 
+export function filterClassification(categories: Record<string, (string | FileDetail)[]>, excludes: string[]) {
+  const filteredCategories: Record<string, (FileDetail | string)[]> = {};
+  for (const [category, files] of Object.entries(categories)) {
+    if (excludes.includes(category)) continue;
+    filteredCategories[category] = files;
+  }
+  return filteredCategories;
+}
 
 
