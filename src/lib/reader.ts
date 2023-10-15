@@ -7,6 +7,7 @@ export interface FileDetail {
   size: number;
   createdAt: Date;
   modifiedAt: Date;
+  toString(): string;
 }
 
 export function isDirectory(dirPath: string): boolean {
@@ -14,8 +15,8 @@ export function isDirectory(dirPath: string): boolean {
 }
 
 // Damn, TypeScript is smart!
-export function readFilesSync(dirPath: string, recursive?: boolean, getFileDetail?: false) : string[];
-export function readFilesSync(dirPath: string, recursive?: boolean, getFileDetail?: true) : FileDetail[];
+export function readFilesSync(dirPath: string, recursive?: boolean, getFileDetail?: false): string[];
+export function readFilesSync(dirPath: string, recursive?: boolean, getFileDetail?: true): FileDetail[];
 export function readFilesSync(dirPath: string, recursive = false, getFileDetail = false) {
   if (!isDirectory(dirPath)) throw new Error('Directory does not exist');
   const files: string[] = [];
@@ -28,9 +29,11 @@ export function readFilesSync(dirPath: string, recursive = false, getFileDetail 
       const filePath = path.join(dirPath, file);
       const stats = fs.statSync(filePath);
 
+
       if (stats.isDirectory() && recursive) {
         readDir(filePath);
       } else {
+        if (stats.isDirectory()) return;
         files.push(filePath);
 
         if (getFileDetail) {
@@ -40,6 +43,9 @@ export function readFilesSync(dirPath: string, recursive = false, getFileDetail 
             size: stats.size,
             createdAt: stats.birthtime,
             modifiedAt: stats.mtime,
+            toString() {
+              return `${this.name}`;
+            }
           };
           fileDetails.push(fileDetail);
         }
