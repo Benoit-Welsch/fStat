@@ -14,5 +14,25 @@
   - `bun install`
   - `bun run -- --help`
 
+## 🌄 Preview :
+
+### Image
+![fStat Preview](./img/Output.svg)
+
+### Text
+```bash
+vscode ➜ /workspaces/fStat (main) $ bun start
+$ bun run src/index.ts
+Total files: 5
+Total size: 2.432K
+Total files in each category:
+
+CODE (3)      | MARKDOWN (1) | CONFIG (1)
+--------------+--------------+-----------
+tsconfig.json | Readme.md    | .gitignore
+bun.lockb     |              |           
+package.json
+```
+
 ## 📝 To Do :
   - ...
