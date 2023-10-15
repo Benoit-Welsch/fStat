@@ -4,7 +4,10 @@
 
 ## 📦 Install :
 
-### from pnpm :
+Not yet available
+
+<!-- ### from pnpm :
+
   - `pnpm i -g fstat`
   - `pnpx fstat --help`
 
@@ -12,7 +15,7 @@
   - `git clone https://github.com/Benoit-Welsch/fStat.git`
   - `cd fStat`
   - `bun install`
-  - `bun run -- --help`
+  - `bun run -- --help` -->
 
 ## 🌄 Preview :
 
