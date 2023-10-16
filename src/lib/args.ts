@@ -1,10 +1,10 @@
-export function parseArgs(args: string[]): Record<string, string[]> {
+export function parseArgs(args: string[], short = true): Record<string, string[]> {
   const options: Record<string, string[]> = { _raw: [], _noContext: [] };
   let currentOption: string | null = null;
 
   for (const arg of args) {
-    if (arg.startsWith("--")) {
-      currentOption = arg.slice(2);
+    if (arg.startsWith("--") || (short && arg.startsWith("-"))) {
+      currentOption = arg.startsWith("--") ? arg.slice(2) : arg.slice(1);
       if (!options[currentOption]) {
         options[currentOption] = [];
       }

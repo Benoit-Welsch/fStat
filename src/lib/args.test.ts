@@ -14,6 +14,12 @@ describe('parseArgs', () => {
     expect(parseArgs(args)).toEqual({ ...expected, _raw: args, _noContext: [] });
   });
 
+  it('should handle short arguments', () => {
+    const args = ['-n', 'John', '-a', '30'];
+    const expected = { n: ['John'], a: ['30'] };
+    expect(parseArgs(args, true)).toEqual({ ...expected, _raw: args, _noContext: [] });
+  });
+
   it('should handle arguments with no value', () => {
     const args = ['--verbose', '--debug'];
     const expected = { verbose: [], debug: [] };
